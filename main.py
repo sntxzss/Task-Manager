@@ -5,7 +5,10 @@ def good_looking(task):
 
 def task_load(tasks):
     for task in tasks:
+        print("______________________")
+        print("TASKS LIST:")
         good_looking(task)
+        print("______________________")
 
 def add_task():
           new_task = {
@@ -29,19 +32,23 @@ def show_menu():
         print("2. Add Task")
         print("3. Remove Task")
         print("4. Exit")
-        choice = input("Select an option (1-3): ").strip()
-
+        choice = input("Select an option (1-4): ").strip()
         if choice == "1":
-            task_load(data.task_list)
+          if data.task_list:
+           task_load(data.task_list)
+          else:
+            print("______________________")
+            print("No task added.")
+            print("______________________")1
         elif choice == "2":
           add_task()
         elif choice == "3":
           remove_task()
         elif choice == "4":
-            print("Exiting program. Goodbye!")
-            break
+          print("Exiting program. Goodbye!")
+          break
         else:
-            print("Invalid choice, please try again.")
+          print("Invalid choice, please try again.")
 
 if __name__ == "__main__":
     show_menu()
